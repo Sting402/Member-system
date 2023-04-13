@@ -24,7 +24,7 @@
           <div class="text-center 2xl:mb-10 mb-5">
             <h4 class="font-medium">妤果代理商系統</h4>
             <div class="text-slate-500 dark:text-slate-400 text-base">
-              請輸入 <b>會員編號</b> 或 <b>手機號碼</b> 登入系統
+              請輸入 <b>身份證字號</b> 或 <b>手機號碼</b> 登入系統
             </div>
           </div>
           <Signin />

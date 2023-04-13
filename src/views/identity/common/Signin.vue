@@ -1,9 +1,9 @@
 <script setup>
 import Textinput from "@/components/Textinput";
-import { useField, useForm } from "vee-validate";
-import * as yup from "yup";
-import { ref } from "vue";
 import axios from "axios";
+import { useField, useForm } from "vee-validate";
+import { ref } from "vue";
+import * as yup from "yup";
 
 import { useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
@@ -64,13 +64,17 @@ const onSubmit = handleSubmit(async (value) => {
       const a = JSON.stringify(response.data.payload);
 
       localStorage.setItem("login-info", a);
+      sessionStorage.setItem("login-info", a);
       if (response.data.success == true) {
         // console.log("login-info", a);
-        const x = JSON.parse(localStorage.getItem("login-info"));
-        if (x.level < 7) {
-          router.push("/yuvog-agent/agent-office");
-        } else {
+        const x = JSON.parse(sessionStorage.getItem("login-info"));
+        console.log("status", x.status);
+        if (x.level > 7) {
           router.push("/yuvog-agent/admin");
+        } else if (x.status === 0) {
+          router.push("/OTPval");
+        } else {
+          router.push("/yuvog-agent/agent-office");
         }
         toast.success("頁面跳轉中", {
           timeout: 2000,

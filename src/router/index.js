@@ -43,11 +43,9 @@ router.beforeEach((to, from, next) => {
   } else if (
     isLoggedIn &&
     status === 0 &&
-    (to.path === "/login" || to.path === "/otpcon" || to.path === "/otpval")
+    (to.path === "/login" || to.path === "/otpcon" || to.path === "/otpval" || to.path === "/signup-agent" || to.path === "/signup-member")
   ) {
     next();
-  } else if (isLoggedIn && status === 0 && to.path !== "/otpval") {
-    next("/otpval");
   } else {
     next();
   }
