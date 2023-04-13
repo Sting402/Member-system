@@ -1,0 +1,18 @@
+.v-select {
+    border-radius: 4px;
+    margin-top: 8px;
+    
+    
+    
+}
+.v-select  :deep(path){
+    display: none;
+}
+.v-select  :deep(input){
+    height: 30px;
+}
+.label{
+    font-size: 14px;
+}
+
+
